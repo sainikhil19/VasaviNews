@@ -123,6 +123,36 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+
+         /*
+        uncomment after implementing tagslist adapter
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DailyActivity.this, EditorActivity.class);
+                             startActivity(intent);
+            }
+        });
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+        // Create an adapter that knows which fragment should be shown on each page
+        TagAdapter adapter = new TagAdapter(this, getSupportFragmentManager());
+
+
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
+
+
+        // Find the tab layout that shows the tabs
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        tabLayout.setupWithViewPager(viewPager);
+
+
+        */
     }
 
 
