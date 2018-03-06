@@ -26,8 +26,10 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".TagsActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".TagsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PostNewsActivity"></activity>
     </application>
 
 </manifest>

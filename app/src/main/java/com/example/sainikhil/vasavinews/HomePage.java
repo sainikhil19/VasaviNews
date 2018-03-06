@@ -57,7 +57,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        Intent i= new Intent(this,TagsActivity.class);
+        Intent i= new Intent(this,PostNewsActivity.class);
         startActivity(i);
     }
 
