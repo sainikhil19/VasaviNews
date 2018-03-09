@@ -8,4 +8,45 @@
     <string name="app_label">Search</string>
     <string name="search_hint">Search Me</string>
     <string name="search">Search</string>
+
+    <string-array name="stepLabels">
+        <item>Approval</item>
+        <item>Processed</item>
+        <item>Shipped</item>
+        <item>Delivery</item>
+    </string-array>
+    <string-array name="tags_array">
+        <item>All News</item>
+        <item>Important Notices</item>
+        <item>CSE</item>
+        <item>ECE</item>
+        <item>IT</item>
+        <item>EEE</item>
+        <item>CIVIL</item>
+        <item>MECH</item>
+        <item>Placements</item>
+        <item>1st Year</item>
+        <item>2nd Year</item>
+        <item>3rd Year</item>
+        <item>4th Year</item>
+        <item>Student\'s Corner</item>
+        <item>Events</item>
+        <item>Oracle Literature Club</item>
+        <item>ToastMasters</item>
+        <item>Street Cause</item>
+        <item>Abhinaya</item>
+        <item>Theme Ballet</item>
+        <item>Krithi Arts Club</item>
+        <item>Sahaay</item>
+        <item>Vasavi Talkies Photography Club</item>
+        <item>Street Cause (VCE)</item>
+        <item>Swayam</item>
+        <item>Acumen</item>
+        <item>Euphoria</item>
+        <item>Other College Events</item>
+
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.sainikhil.vasavinews.postdata.TitleFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/back"
+        android:ems="10"
+        android:hint="Title"
+        android:padding="10sp"
+        android:textSize="30sp" />
+
+    <View
+        android:layout_below="@id/editText"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:id="@+id/view1"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+
+    <EditText
+        android:layout_below="@id/view1"
+        android:id="@+id/textArea_information1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/back"
+        android:gravity="top|left"
+        android:hint="Desciption"
+        android:lines="16"
+        android:inputType="textMultiLine"
+        android:overScrollMode="always"
+        android:padding="10sp"
+        android:scrollHorizontally="false"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="italic" />
+
+</LinearLayout>
