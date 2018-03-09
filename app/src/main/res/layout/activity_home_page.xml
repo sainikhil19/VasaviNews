@@ -17,7 +17,7 @@
     tools:context="com.example.sainikhil.vasavinews.HomePage">
 
 
-    <!-- commented incase needed
+    <!-- commented unless needed
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
