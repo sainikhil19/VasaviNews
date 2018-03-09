@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/AllNews"
+            android:icon="@drawable/edit"
+            android:title="AllNews" />
+        <item
+            android:id="@+id/ImportantNews"
+            android:icon="@drawable/edit"
+            android:title="ImportantNews" />
+        <item
+            android:id="@+id/CSE"
+            android:icon="@drawable/edit"
+            android:title="CSE" />
+        <item
+            android:id="@+id/ECE"
+            android:icon="@drawable/edit"
+            android:title="ECE" />
+        <item
+            android:id="@+id/EEE"
+            android:icon="@drawable/edit"
+            android:title="EEE" />
+        <item
+            android:id="@+id/IT"
+            android:icon="@drawable/edit"
+            android:title="IT" />
+        <item
+            android:id="@+id/CIVIL"
+            android:icon="@drawable/edit"
+            android:title="CIVIL" />
+        <item
+            android:id="@+id/MECH"
+            android:icon="@drawable/edit"
+            android:title="MECH" />
 
-    <item android:title="Select Filters">
-        <menu>
-            <item
-                android:id="@+id/filter1"
-                android:icon="@drawable/edit"
-                android:title="Filter 1" />
-            <item
-                android:id="@+id/filter2"
-                android:icon="@drawable/edit"
-                android:title="Filter 2" />
-            <item
-                android:id="@+id/filter3"
-                android:icon="@drawable/edit"
-                android:title="Filter 3" />
-            <item
-                android:id="@+id/filter4"
-                android:icon="@drawable/edit"
-                android:title="Filter 4" />
-        </menu>
-    </item>
+    </group>
+
+
 
 
     <item android:title="Communicate">
