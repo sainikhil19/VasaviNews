@@ -32,16 +32,21 @@ public class TagsActivity extends AppCompatActivity {
         .uncheckedChipColor(Color.parseColor("#e0e0e0"))
         .uncheckedTextColor(Color.parseColor("#000000"));
 
-    ChipCloud chipCloud = new ChipCloud(this, flexbox, config);
+    final ChipCloud chipCloud = new ChipCloud(this, flexbox, config);
 
     final String[] tagsArray = getResources().getStringArray(R.array.tags_array);
     chipCloud.addChips(tagsArray);
+    chipCloud.setChecked(0);
+    selected_tags[0]=true;
     chipCloud.setListener(new ChipListener() {
       @Override
       public void chipCheckedChange(int index, boolean checked, boolean userClick) {
         if(userClick) {
-          Log.d(TAG, String.format("chipCheckedChange Label at index: %d checked: %s", index, checked));
-          selected_tags[index]=!selected_tags[index];
+            Log.d(TAG, String.format("chipCheckedChange Label at index: %d checked: %s", index, checked));
+            if(index==0)
+                chipCloud.setChecked(0);
+            else
+                selected_tags[index] = !selected_tags[index];
         }
       }
     });
