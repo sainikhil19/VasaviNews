@@ -163,6 +163,48 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         } else if (id == R.id.IT) {
 
+        } else if (id == R.id.Placements) {
+
+        } else if (id == R.id.year1) {
+
+        } else if (id == R.id.year2) {
+
+        }else if (id == R.id.year3) {
+
+        } else if (id == R.id.year4) {
+
+        } else if (id == R.id.studentscorner) {
+
+        } else if (id == R.id.Euphoria) {
+
+        } else if (id == R.id.Acumen) {
+
+        }else if (id == R.id.KrithiArtsClub) {
+
+        } else if (id == R.id.VasaviTalkiesPhotographyClub) {
+
+        } else if (id == R.id.OracleLiteratureClub) {
+
+        } else if (id == R.id.events) {
+
+        } else if (id == R.id.ThemeBallet) {
+
+        }else if (id == R.id.Abhinaya) {
+
+        } else if (id == R.id.ToastMaster) {
+
+        }else if (id == R.id.events) {
+
+        }else if (id == R.id.StreetCause) {
+
+        }else if (id == R.id.StreetCausevce) {
+
+        }else if (id == R.id.Swayam) {
+
+        }else if (id == R.id.OtherCollegeEvents) {
+
+        } else if (id == R.id.Sahaay) {
+
         }else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
