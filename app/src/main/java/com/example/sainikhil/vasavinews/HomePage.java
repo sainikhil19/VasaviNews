@@ -24,6 +24,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     //private android.widget.SearchView searchView;
     private SearchView searchView;
     public boolean[] selected_tags;
+    String[] selected;
     private static final int TAGS_ACTIVITY_REQUEST_CODE = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,14 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         navigationView.setNavigationItemSelectedListener(this);
         Intent i= new Intent(this,TagsActivity.class);
         startActivityForResult(i,TAGS_ACTIVITY_REQUEST_CODE);
+
+        String[] tagsArray = getResources().getStringArray(R.array.tags_array);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        TagsAdapter adapter = new TagsAdapter( getSupportFragmentManager(),tagsArray);
+        viewPager.setAdapter(adapter);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
@@ -84,7 +93,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 if(i==true)
                     count++;
             }
-            String[] selected = new String[count];
+            selected = new String[count];
             String[] tagsArray = getResources().getStringArray(R.array.tags_array);
             int current=0;
             for(int i=0;i<tagsArray.length;i++)
@@ -96,12 +105,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 }
             }
             //dummy_text.setText(java.util.Arrays.toString(selected_tags));
-            ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-            TagsAdapter adapter = new TagsAdapter( getSupportFragmentManager(),selected);
-            viewPager.setAdapter(adapter);
-            TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
-            tabLayout.setupWithViewPager(viewPager);
 
         }
 

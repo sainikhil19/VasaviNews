@@ -25,11 +25,13 @@ public class TagsAdapter extends FragmentPagerAdapter{
 
     @Override
     public int getCount() {
-        return count;
+        return count+1;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return tagsArray[position];
+        if(position==0)
+            return "Home";
+        return tagsArray[position-1];
     }
 }
