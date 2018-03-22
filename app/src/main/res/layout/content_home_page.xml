@@ -25,6 +25,7 @@
             app:tabTextColor="@android:color/white"
             app:tabMode="scrollable"
 
+
             android:layout_width="match_parent"
             android:layout_height="48dp" />
 
