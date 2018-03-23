@@ -13,16 +13,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.widget.SearchView;
 
+import com.example.sainikhil.vasavinews.menuactions.MenuCreate;
 import com.example.sainikhil.vasavinews.tagsdata.TagsAdapter;
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     //private android.widget.SearchView searchView;
     private SearchView searchView;
     public boolean[] selected_tags;
-    String[] selected;
+    private String[] selected;
+    private String[] tagsArray;
+    private TabLayout tabLayout;
     private static final int TAGS_ACTIVITY_REQUEST_CODE = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,19 +66,26 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
         Intent i= new Intent(this,TagsActivity.class);
         startActivityForResult(i,TAGS_ACTIVITY_REQUEST_CODE);
 
-        String[] tagsArray = getResources().getStringArray(R.array.tags_array);
+        tagsArray = getResources().getStringArray(R.array.tags_array);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        TagsAdapter adapter = new TagsAdapter( getSupportFragmentManager(),tagsArray);
+        TagsAdapter adapter = new TagsAdapter(getSupportFragmentManager(), tagsArray);
         viewPager.setAdapter(adapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
 
         tabLayout.setupWithViewPager(viewPager);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        //generating menu items
+        MenuCreate menuCreate = new MenuCreate(navigationView,tagsArray,tabLayout);
+        menuCreate.addMenu();
     }
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -151,65 +162,11 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.AllNews) {
-            // Handle the camera action
-        } else if (id == R.id.ImportantNews) {
 
-        } else if (id == R.id.CSE) {
 
-        } else if (id == R.id.ECE) {
 
-        } else if (id == R.id.EEE) {
 
-        } else if (id == R.id.CIVIL) {
-
-        }else if (id == R.id.MECH) {
-
-        } else if (id == R.id.IT) {
-
-        } else if (id == R.id.Placements) {
-
-        } else if (id == R.id.year1) {
-
-        } else if (id == R.id.year2) {
-
-        }else if (id == R.id.year3) {
-
-        } else if (id == R.id.year4) {
-
-        } else if (id == R.id.studentscorner) {
-
-        } else if (id == R.id.Euphoria) {
-
-        } else if (id == R.id.Acumen) {
-
-        }else if (id == R.id.KrithiArtsClub) {
-
-        } else if (id == R.id.VasaviTalkiesPhotographyClub) {
-
-        } else if (id == R.id.OracleLiteratureClub) {
-
-        } else if (id == R.id.events) {
-
-        } else if (id == R.id.ThemeBallet) {
-
-        }else if (id == R.id.Abhinaya) {
-
-        } else if (id == R.id.ToastMaster) {
-
-        }else if (id == R.id.events) {
-
-        }else if (id == R.id.StreetCause) {
-
-        }else if (id == R.id.StreetCausevce) {
-
-        }else if (id == R.id.Swayam) {
-
-        }else if (id == R.id.OtherCollegeEvents) {
-
-        } else if (id == R.id.Sahaay) {
-
-        }else if (id == R.id.nav_share) {
+        if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
