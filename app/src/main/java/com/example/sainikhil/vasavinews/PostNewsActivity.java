@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.example.sainikhil.vasavinews.postdata.PostNewsFragment;
+import com.google.android.flexbox.FlexboxLayout;
 
 
 public class PostNewsActivity extends AppCompatActivity {
+
+
 
     private Fragment mPostNewsFragment = new PostNewsFragment();
 
