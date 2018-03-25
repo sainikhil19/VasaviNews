@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <!--Title and description-->
+        <moe.feng.common.stepperview.VerticalStepperItemView
+            android:id="@+id/info_part"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:step_index="1"
+            app:step_title="Step 1"
+            app:step_summary="Summarized if needed"
+            app:step_summary_done="Summarized if needed. Done"
+            app:step_state="selected">
+
+            <include layout="@layout/title_and_desc"/>
+
+        </moe.feng.common.stepperview.VerticalStepperItemView>
+
+
+
+        <!-- Add Image-->
+        <moe.feng.common.stepperview.VerticalStepperItemView
+            android:id="@+id/image_part"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:step_index="2"
+            app:step_title="Step 2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Step 2"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button_next_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/material_blue_500"
+                        android:textColor="@android:color/white"
+                        android:text="@android:string/ok"/>
+
+                    <Button
+                        android:id="@+id/button_prev_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@android:string/cancel"/>
+                </LinearLayout>
+            </LinearLayout>
+        </moe.feng.common.stepperview.VerticalStepperItemView>
+
+        <!--Tags part-->
+        <moe.feng.common.stepperview.VerticalStepperItemView
+            android:id="@+id/tags_part"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:step_index="3"
+            app:step_title="Step 3"
+            app:step_summary="Add Tags"
+            app:step_summary_done="Tags Added"
+            app:step_is_last="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/tags_add"/>
+
+                <Button
+                        android:id="@+id/button_next_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/material_blue_500"
+                        android:textColor="@android:color/white"
+                        android:text="@android:string/ok"/>
+
+                <Button
+                        android:id="@+id/button_prev_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@android:string/cancel"/>
+
+            </LinearLayout>
+
+        </moe.feng.common.stepperview.VerticalStepperItemView>
+
+
+        <!-- Preview part-->
+        <moe.feng.common.stepperview.VerticalStepperItemView
+            android:id="@+id/preview_part"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:step_index="4"
+            app:step_title="Step 4"
+            app:step_summary="Preview"
+            app:step_summary_done="Done"
+            app:step_is_last="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Step 3"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button_next_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/material_blue_500"
+                        android:textColor="@android:color/white"
+                        android:text="@android:string/ok"/>
+
+                    <Button
+                        android:id="@+id/button_prev_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@android:string/cancel"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </moe.feng.common.stepperview.VerticalStepperItemView>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
