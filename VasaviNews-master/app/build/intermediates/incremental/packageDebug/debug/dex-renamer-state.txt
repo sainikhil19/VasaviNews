@@ -1,4 +1,0 @@
-#Mon Mar 26 23:08:41 IST 2018
-base.0=C\:\\Users\\personal\\AndroidStudioProjects\\VasaviNews-master\\VasaviNews-master\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex
