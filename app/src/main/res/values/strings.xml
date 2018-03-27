@@ -16,7 +16,6 @@
         <item>Delivery</item>
     </string-array>
     <string-array name="tags_array">
-        <item>All News</item>
         <item>Important Notices</item>
         <item>CSE</item>
         <item>ECE</item>

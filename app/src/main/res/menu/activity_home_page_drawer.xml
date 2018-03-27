@@ -1,124 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/AllNews"
-            android:icon="@drawable/edit"
-            android:title="AllNews" />
-        <item
-            android:id="@+id/ImportantNews"
-            android:icon="@drawable/edit"
-            android:title="ImportantNews" />
-        <item
-            android:id="@+id/CSE"
-            android:icon="@drawable/edit"
-            android:title="CSE" />
-        <item
-            android:id="@+id/ECE"
-            android:icon="@drawable/edit"
-            android:title="ECE" />
-        <item
-            android:id="@+id/EEE"
-            android:icon="@drawable/edit"
-            android:title="EEE" />
-        <item
-            android:id="@+id/MECH"
-            android:icon="@drawable/edit"
-            android:title="MECH" />
-        <item
-            android:id="@+id/CIVIL"
-            android:icon="@drawable/edit"
-            android:title="CIVIL" />
-        <item
-            android:id="@+id/IT"
-            android:icon="@drawable/edit"
-            android:title="IT" />
 
-
-        <item
-            android:id="@+id/Placements"
-            android:icon="@drawable/edit"
-            android:title="Placements" />
-        <item
-            android:id="@+id/year1"
-            android:icon="@drawable/edit"
-            android:title="1st Year" />
-        <item
-            android:id="@+id/year2"
-            android:icon="@drawable/edit"
-            android:title="2nd Year" />
-        <item
-            android:id="@+id/year3"
-            android:icon="@drawable/edit"
-            android:title="3rd Year" />
-        <item
-            android:id="@+id/year4"
-            android:icon="@drawable/edit"
-            android:title="4th Year" />
-        <item
-            android:id="@+id/studentscorner"
-            android:icon="@drawable/edit"
-            android:title="student's corner" />
-        <item
-            android:id="@+id/events"
-            android:icon="@drawable/edit"
-            android:title="Events" />
-        <item
-            android:id="@+id/OracleLiteratureClub"
-            android:icon="@drawable/edit"
-            android:title="Oracle Literature Club" />
-        <item
-            android:id="@+id/ToastMaster"
-            android:icon="@drawable/edit"
-            android:title="ToastMaster" />
-        <item
-            android:id="@+id/StreetCause"
-            android:icon="@drawable/edit"
-            android:title="Street Cause" />
-        <item
-            android:id="@+id/Abhinaya"
-            android:icon="@drawable/edit"
-            android:title="Abhinaya" />
-        <item
-            android:id="@+id/ThemeBallet"
-            android:icon="@drawable/edit"
-            android:title="Theme Ballet" />
-        <item
-            android:id="@+id/KrithiArtsClub"
-            android:icon="@drawable/edit"
-            android:title="Krithi Arts Club" />
-        <item
-            android:id="@+id/Sahaay"
-            android:icon="@drawable/edit"
-            android:title="Sahaay" />
-        <item
-            android:id="@+id/VasaviTalkiesPhotographyClub"
-            android:icon="@drawable/edit"
-            android:title="Vasavi Talkies Photography Club" />
-        <item
-            android:id="@+id/StreetCausevce"
-            android:icon="@drawable/edit"
-            android:title="Street Cause (VCE)" />
-        <item
-            android:id="@+id/Swayam"
-            android:icon="@drawable/edit"
-            android:title="Swayam" />
-        <item
-            android:id="@+id/Acumen"
-            android:icon="@drawable/edit"
-            android:title="Acumen" />
-        <item
-            android:id="@+id/Euphoria"
-            android:icon="@drawable/edit"
-            android:title="Euphoria" />
-        <item
-            android:id="@+id/OtherCollegeEvents"
-            android:icon="@drawable/edit"
-            android:title="Other College Events" />
-
-    </group>
-
-
+    <item android:title="Select Filters">
+        <menu>
+            <item
+                android:id="@+id/filter1"
+                android:icon="@drawable/edit"
+                android:title="Filter 1" />
+            <item
+                android:id="@+id/filter2"
+                android:icon="@drawable/edit"
+                android:title="Filter 2" />
+            <item
+                android:id="@+id/filter3"
+                android:icon="@drawable/edit"
+                android:title="Filter 3" />
+            <item
+                android:id="@+id/filter4"
+                android:icon="@drawable/edit"
+                android:title="Filter 4" />
+        </menu>
+    </item>
 
 
     <item android:title="Communicate">

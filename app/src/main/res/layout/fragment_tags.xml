@@ -23,8 +23,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="40dp"
-            android:paddingBottom="5dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
             android:text="TAGS:"
             android:id="@+id/tags_text"
             android:textSize="16sp"/>

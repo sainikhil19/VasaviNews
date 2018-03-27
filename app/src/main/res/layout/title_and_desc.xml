@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- Label -->
+            <TextView
+                style="@style/CategoryStyle"
+                android:text="News Detail" />
+
+            <!-- Input fields -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:paddingLeft="4dp">
+
+
+            <!-- Name field -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/news_title"
+                style="@style/EditorFieldStyle"
+                android:hint="Headline"
+                android:inputType="textCapWords" />
+
+            <!-- Breed field -->
+            <ScrollView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <EditText
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:minLines="3"
+                    android:gravity="top|left"
+                    android:scrollbars="vertical"
+                    android:id="@+id/news_details"
+                    style="@style/EditorFieldStyle"
+                    android:hint="Details" />
+            </ScrollView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_next_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/material_blue_500"
+                android:textColor="@android:color/white"
+                android:text="@android:string/ok"/>
+        </LinearLayout>
+
+</LinearLayout>
