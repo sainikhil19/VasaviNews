@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:id="@+id/title_desc_template"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,17 +28,27 @@
 
             <!-- Name field -->
             <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/news_title"
                 style="@style/EditorFieldStyle"
                 android:hint="Headline"
                 android:inputType="textCapWords" />
 
             <!-- Breed field -->
-            <EditText
-                android:id="@+id/news_details"
-                style="@style/EditorFieldStyle"
-                android:hint="Details"
-                android:inputType="textCapWords" />
+            <ScrollView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <EditText
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:minLines="3"
+                    android:gravity="top|left"
+                    android:scrollbars="vertical"
+                    android:id="@+id/news_details"
+                    style="@style/EditorFieldStyle"
+                    android:hint="Details" />
+            </ScrollView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
