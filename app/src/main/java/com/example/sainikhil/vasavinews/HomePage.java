@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -12,11 +11,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.SearchView;
 
 import com.example.sainikhil.vasavinews.tagsdata.TagsAdapter;
 
@@ -33,7 +31,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //searchView=(SearchView)findViewById(R.id.sv);
-
+        //Intent i1=getIntent();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +83,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         if(requestCode==TAGS_ACTIVITY_REQUEST_CODE)
         {
             selected_tags=data.getBooleanArrayExtra("selected_tags");
-           // TextView dummy_text=(TextView)findViewById(R.id.dummy_text);
 
             int count = 0;
             for (boolean i : selected_tags)
@@ -96,15 +93,12 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             selected = new String[count];
             String[] tagsArray = getResources().getStringArray(R.array.tags_array);
             int current=0;
-            for(int i=0;i<tagsArray.length;i++)
-            {
-                if(selected_tags[i])
-                {
-                    selected[current]=tagsArray[i];
+            for(int i=0;i<tagsArray.length;i++) {
+                if (selected_tags[i]) {
+                    selected[current] = tagsArray[i];
                     current++;
                 }
             }
-            //dummy_text.setText(java.util.Arrays.toString(selected_tags));
 
 
         }
@@ -153,15 +147,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.filter1) {
-            // Handle the camera action
-        } else if (id == R.id.filter2) {
-
-        } else if (id == R.id.filter3) {
-
-        } else if (id == R.id.filter4) {
-
-        } else if (id == R.id.nav_share) {
+         if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 

@@ -18,10 +18,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.sainikhil.vasavinews.HomePage;
 import com.example.sainikhil.vasavinews.R;
 import com.google.android.flexbox.FlexboxLayout;
+
 import java.io.IOException;
+
 import fisk.chipcloud.ChipCloud;
 import fisk.chipcloud.ChipCloudConfig;
 import fisk.chipcloud.ChipListener;
@@ -112,9 +113,9 @@ public class PostNewsFragment extends Fragment {
         mNextBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(), HomePage.class);
+                //Intent intent=new Intent(getActivity(), HomePage.class);
                 Snackbar.make(view, "Finish!", Snackbar.LENGTH_LONG).show();
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
