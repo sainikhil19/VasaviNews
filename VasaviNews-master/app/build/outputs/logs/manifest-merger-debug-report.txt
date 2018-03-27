@@ -1,0 +1,149 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:2:1-38:12
+MERGED from [moe.feng:MaterialStepperView:0.2.4.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\MaterialStepperView-0.2.4.2.aar\cd4adcee1a2c3bee9fae192bf0917338\AndroidManifest.xml:2:1-12:12
+MERGED from [com.android.support:design:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\06c41bf814217f67500f37b382579264\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.fiskurgit:ChipCloud:3.0.5] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\ChipCloud-3.0.5.aar\7549873c46a601fc449a9b426a7ee8ba\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\2c784d0828da9d4e826a0dc83d52df54\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android:flexbox:0.3.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\flexbox-0.3.2.aar\d8fac4bc181c89c061e6d3466ec73052\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\2e170b3a91298ef13091e714c1a69610\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-v4:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\a00fbe1cec2c764a1389947e946a06ff\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\420ccd83dcda168bcaa3432c9f2886af\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\cb5fc5c3194b03c1fefc11aaf799c8af\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\547d4353260b7a25b5d883e078214a22\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\3ea232e9ffd5fc627e8b1c01e990bb17\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\4a40f4e7354c130b1c95144c6cfbf80b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\4c022fbcea4e50ed5477f2f24e6934af\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\c0f058319d3881c8c6e163132dfca80e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\258c7bf78aa55ca4e42525bd48c56bcd\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\d4b0bfaf11746990e4ccc952ca4a05ac\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\9d1ac95b3c0483dd2363c5cb0d5151b5\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\bc20f0fd2289149e393d47d892decd3c\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2504cc58ebcab0b3a5c6e453fa19d579\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\21a897aef3845ea5529b2add470ba71d\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:2:1-38:12
+	package
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:4:5-47
+		INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:2:1-38:12
+		INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:2:1-38:12
+		INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:5:5-80
+	android:name
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:5:22-77
+application
+ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:8:5-36:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\2e170b3a91298ef13091e714c1a69610\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\2e170b3a91298ef13091e714c1a69610\AndroidManifest.xml:9:5-20
+	android:supportsRtl
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:12:9-35
+	android:label
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:10:9-41
+	android:roundIcon
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:11:9-54
+	android:icon
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:9:9-43
+	android:theme
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:13:9-40
+meta-data#android.app.searchable
+ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:14:9-16:50
+	android:resource
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:16:13-47
+	android:name
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:15:13-50
+activity#com.example.sainikhil.vasavinews.HomePage
+ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:18:9-31:20
+	android:label
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:20:13-45
+	android:theme
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:21:13-56
+	android:name
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:19:13-37
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:22:13-26:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:23:17-69
+	android:name
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:23:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:25:27-74
+activity#com.example.sainikhil.vasavinews.TagsActivity
+ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:32:9-34:59
+	android:theme
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:34:13-56
+	android:name
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:33:13-41
+activity#com.example.sainikhil.vasavinews.PostNewsActivity
+ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:35:9-63
+	android:name
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml:35:19-51
+uses-sdk
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+MERGED from [moe.feng:MaterialStepperView:0.2.4.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\MaterialStepperView-0.2.4.2.aar\cd4adcee1a2c3bee9fae192bf0917338\AndroidManifest.xml:8:5-10:41
+MERGED from [moe.feng:MaterialStepperView:0.2.4.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\MaterialStepperView-0.2.4.2.aar\cd4adcee1a2c3bee9fae192bf0917338\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:design:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\06c41bf814217f67500f37b382579264\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\06c41bf814217f67500f37b382579264\AndroidManifest.xml:20:5-44
+MERGED from [com.github.fiskurgit:ChipCloud:3.0.5] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\ChipCloud-3.0.5.aar\7549873c46a601fc449a9b426a7ee8ba\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.fiskurgit:ChipCloud:3.0.5] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\ChipCloud-3.0.5.aar\7549873c46a601fc449a9b426a7ee8ba\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\2c784d0828da9d4e826a0dc83d52df54\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\2c784d0828da9d4e826a0dc83d52df54\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android:flexbox:0.3.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\flexbox-0.3.2.aar\d8fac4bc181c89c061e6d3466ec73052\AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android:flexbox:0.3.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\flexbox-0.3.2.aar\d8fac4bc181c89c061e6d3466ec73052\AndroidManifest.xml:23:5-25:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\2e170b3a91298ef13091e714c1a69610\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\2e170b3a91298ef13091e714c1a69610\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\a00fbe1cec2c764a1389947e946a06ff\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\a00fbe1cec2c764a1389947e946a06ff\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\420ccd83dcda168bcaa3432c9f2886af\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\420ccd83dcda168bcaa3432c9f2886af\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\cb5fc5c3194b03c1fefc11aaf799c8af\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\cb5fc5c3194b03c1fefc11aaf799c8af\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\547d4353260b7a25b5d883e078214a22\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\547d4353260b7a25b5d883e078214a22\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\3ea232e9ffd5fc627e8b1c01e990bb17\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\3ea232e9ffd5fc627e8b1c01e990bb17\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\4a40f4e7354c130b1c95144c6cfbf80b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\4a40f4e7354c130b1c95144c6cfbf80b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\4c022fbcea4e50ed5477f2f24e6934af\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\4c022fbcea4e50ed5477f2f24e6934af\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\c0f058319d3881c8c6e163132dfca80e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\c0f058319d3881c8c6e163132dfca80e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\258c7bf78aa55ca4e42525bd48c56bcd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\258c7bf78aa55ca4e42525bd48c56bcd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\d4b0bfaf11746990e4ccc952ca4a05ac\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\d4b0bfaf11746990e4ccc952ca4a05ac\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\9d1ac95b3c0483dd2363c5cb0d5151b5\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\9d1ac95b3c0483dd2363c5cb0d5151b5\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\bc20f0fd2289149e393d47d892decd3c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\bc20f0fd2289149e393d47d892decd3c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2504cc58ebcab0b3a5c6e453fa19d579\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2504cc58ebcab0b3a5c6e453fa19d579\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\21a897aef3845ea5529b2add470ba71d\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\personal\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\21a897aef3845ea5529b2add470ba71d\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\personal\AndroidStudioProjects\VasaviNews-master\VasaviNews-master\app\src\main\AndroidManifest.xml
