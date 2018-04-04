@@ -3,8 +3,7 @@
     <group android:checkableBehavior="single"
         android:id="@+id/categories_group"
         android:orderInCategory="1">
-
-
+        <!--<item android:title="Communication"/>-->
     </group>
 
 

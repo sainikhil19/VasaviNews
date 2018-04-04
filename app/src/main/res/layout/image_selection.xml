@@ -6,9 +6,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <Button
+        <ImageButton
+            android:src="@drawable/gallery"
             android:id="@+id/button_from_gallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -17,7 +18,8 @@
             android:text="Pick from Gallery"/>
 
 
-        <Button
+        <ImageButton
+            android:src="@drawable/camera"
             android:id="@+id/button_from_camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

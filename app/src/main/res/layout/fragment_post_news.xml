@@ -119,9 +119,10 @@
         </moe.feng.common.stepperview.VerticalStepperItemView>
 
 
-        <!-- Preview part-->
+        <!-- Preview part android:background="@drawable/my_custom_background"-->
         <moe.feng.common.stepperview.VerticalStepperItemView
             android:id="@+id/preview_part"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

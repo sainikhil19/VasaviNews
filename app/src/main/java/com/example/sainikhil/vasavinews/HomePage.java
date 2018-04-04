@@ -1,7 +1,11 @@
 package com.example.sainikhil.vasavinews;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Process;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -10,20 +14,36 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.sainikhil.vasavinews.tagsdata.TagsAdapter;
+
+import java.util.ArrayList;
+
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     //private android.widget.SearchView searchView;
     private SearchView searchView;
     public boolean[] selected_tags;
+    ImageView imageview,img;
     String[] selected;
+    ImageView previewThumbnail;
+    int index=0;
+    ArrayList<String> title_recycler_list=new ArrayList<String>();
+    ArrayList<String> description_recycler_list=new ArrayList<String>();
+    ArrayList<Bitmap> bitmap=new ArrayList<Bitmap>();
+    RecyclerView mRecyclerView;
+    LinearLayoutManager mLayoutManager;
     private static final int TAGS_ACTIVITY_REQUEST_CODE = 0;
+    private static final int POST_NEWS_ACTIVITY_REQUEST_CODE=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,30 +52,16 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         setSupportActionBar(toolbar);
         //searchView=(SearchView)findViewById(R.id.sv);
         //Intent i1=getIntent();
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePage.this, PostNewsActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,POST_NEWS_ACTIVITY_REQUEST_CODE);
             }
         });
-        /*
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-
-                //Toast.makeText(getApplicationContext(),query,Toast.LENGTH_SHORT).show();
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -74,13 +80,42 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
         tabLayout.setupWithViewPager(viewPager);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
+
+
+
+        /*
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                //Toast.makeText(getApplicationContext(),query,Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+*/
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==TAGS_ACTIVITY_REQUEST_CODE)
+        if(requestCode==TAGS_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK)
         {
             selected_tags=data.getBooleanArrayExtra("selected_tags");
 
@@ -101,6 +136,30 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             }
 
 
+        }
+        if(requestCode==POST_NEWS_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK)
+        {
+            String title=data.getStringExtra("title");
+            String description=data.getStringExtra("description");
+            if(data.hasExtra("imagebitmap")) {
+                previewThumbnail = (ImageView)findViewById(R.id.imageView);
+                bitmap.add(BitmapFactory.decodeByteArray(
+                        data.getByteArrayExtra("imagebitmap"),0,data.getByteArrayExtra("imagebitmap").length));
+            }
+            boolean[] post_related_tags=data.getBooleanArrayExtra("post_related_tags");
+            title_recycler_list.add(title);
+            description_recycler_list.add(description);
+            for(int i=0;i<post_related_tags.length;i++)
+            {
+                if(post_related_tags[i]==true)
+                    Toast.makeText(getApplicationContext(),String.valueOf(post_related_tags[i]),Toast.LENGTH_LONG).show();
+            }
+
+            String [] title_list = title_recycler_list.toArray(new String[title_recycler_list.size()]);
+            Bitmap [] bitmap_list = bitmap.toArray(new Bitmap[bitmap.size()]);
+            String [] description_list = description_recycler_list.toArray(new String[description_recycler_list.size()]);
+            MyAdapter mAdapter = new MyAdapter(title_list,bitmap_list,description_list);
+            mRecyclerView.setAdapter(mAdapter);
         }
 
     }
@@ -135,6 +194,9 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            //Intent intent=new Intent(this, Personal_Settings.class);
+            //startActivity(intent);
+
             return true;
         }
 

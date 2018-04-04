@@ -1,9 +1,11 @@
 package com.example.sainikhil.vasavinews.postdata;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -15,18 +17,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.sainikhil.vasavinews.HomePage;
+import com.example.sainikhil.vasavinews.PostNewsActivity;
 import com.example.sainikhil.vasavinews.R;
 import com.google.android.flexbox.FlexboxLayout;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import fisk.chipcloud.ChipCloud;
 import fisk.chipcloud.ChipCloudConfig;
 import fisk.chipcloud.ChipListener;
 import moe.feng.common.stepperview.VerticalStepperItemView;
+
+import static android.app.Activity.RESULT_OK;
 
 public class PostNewsFragment extends Fragment {
 
@@ -40,7 +49,9 @@ public class PostNewsFragment extends Fragment {
     ImageView imageview;
     TextView news_title_preview,news_details_preview;
     EditText headline,details;
-    Button imagefromgallery,imagefromcamera;
+    Bitmap bitmap;
+    Button imagefromstock;
+    ImageButton imagefromgallery,imagefromcamera;
     public PostNewsFragment() {
         // Required empty public constructor
     }
@@ -51,8 +62,9 @@ public class PostNewsFragment extends Fragment {
         news_title_preview=(TextView)view.findViewById(R.id.news_title_preview);
         news_details_preview=(TextView)view.findViewById(R.id.news_details_preview);
         imageview = (ImageView)view.findViewById(R.id.previewimageView);
-        imagefromgallery=(Button)view.findViewById(R.id.button_from_gallery);
-        imagefromcamera=(Button)view.findViewById(R.id.button_from_camera);
+        imagefromgallery=(ImageButton)view.findViewById(R.id.button_from_gallery);
+        imagefromcamera=(ImageButton)view.findViewById(R.id.button_from_camera);
+        imagefromstock=(Button)view.findViewById(R.id.button_from_stock);
 
         mSteppers[0] = view.findViewById(R.id.info_part);
         mSteppers[1] = view.findViewById(R.id.image_part);
@@ -113,9 +125,20 @@ public class PostNewsFragment extends Fragment {
         mNextBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent=new Intent(getActivity(), HomePage.class);
                 Snackbar.make(view, "Finish!", Snackbar.LENGTH_LONG).show();
-                //startActivity(intent);
+                Intent intent=new Intent();
+                intent.putExtra("title",title);
+                intent.putExtra("description",description);
+
+                imageview.buildDrawingCache();
+                bitmap= imageview.getDrawingCache();
+                ByteArrayOutputStream bytearrayoutputstream=new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG,100,bytearrayoutputstream);
+                intent.putExtra("imagebitmap",bytearrayoutputstream.toByteArray());
+                intent.putExtra("post_related_tags",selected_tags);
+                getActivity().setResult(RESULT_OK, intent);
+                getActivity().finish();
+
             }
         });
 
@@ -144,6 +167,12 @@ public class PostNewsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 pickImageUsingCamera(view);
+            }
+        });
+        imagefromstock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pickImageFromStock(view);
             }
         });
     }
@@ -201,11 +230,18 @@ public class PostNewsFragment extends Fragment {
         startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
 
     }
+
     private void pickImageUsingCamera(View view)
     {
         Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(takePicture, CAMERA_REQUEST);
 
+    }
+
+    private void pickImageFromStock(View view)
+    {
+        imageview.setImageDrawable(getResources().getDrawable(R.drawable.logo_vce));
+        Toast.makeText(view.getContext(), "image Selected", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -225,7 +261,7 @@ public class PostNewsFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == Activity.RESULT_OK) {
+        if(resultCode == RESULT_OK) {
             switch (requestCode) {
                 case GALLERY_REQUEST:
                     Uri selectedImage = data.getData();
@@ -237,11 +273,15 @@ public class PostNewsFragment extends Fragment {
                     }
                     break;
                 case CAMERA_REQUEST:
-                    Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-                    imageview.setImageBitmap(bitmap);
-
+                    try {
+                        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                        imageview.setImageBitmap(bitmap);
+                    } catch (Exception e1) {
+                        Log.i("TAG", "Some exception " + e1);
+                    }
                     break;
             }
+            Toast.makeText(getContext(),  "image Selected", Toast.LENGTH_SHORT).show();
         }
 
     }
