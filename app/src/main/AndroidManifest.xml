@@ -3,6 +3,7 @@
     package="com.example.sainikhil.vasavinews">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -32,7 +33,7 @@
             android:name=".TagsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PostNewsActivity" />
-        <activity android:name=".settings"></activity>
+        <!--activity android:name=".settings"></-activity>-->
     </application>
 
 </manifest>

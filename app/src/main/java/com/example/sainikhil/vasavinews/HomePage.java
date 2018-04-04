@@ -3,9 +3,7 @@ package com.example.sainikhil.vasavinews;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.Process;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -17,25 +15,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.sainikhil.vasavinews.tagsdata.TagsAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     //private android.widget.SearchView searchView;
     private SearchView searchView;
     public boolean[] selected_tags;
-    ImageView imageview,img;
     String[] selected;
-    ImageView previewThumbnail;
+    int position;
+    String postDescription = "",postTitle = "",postImage = "";
+    DatabaseReference databaseReference;
     int index=0;
     ArrayList<String> title_recycler_list=new ArrayList<String>();
     ArrayList<String> description_recycler_list=new ArrayList<String>();
@@ -112,7 +117,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode==TAGS_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK)
@@ -137,29 +142,97 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
 
         }
-        if(requestCode==POST_NEWS_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK)
-        {
-            String title=data.getStringExtra("title");
-            String description=data.getStringExtra("description");
-            if(data.hasExtra("imagebitmap")) {
-                previewThumbnail = (ImageView)findViewById(R.id.imageView);
-                bitmap.add(BitmapFactory.decodeByteArray(
-                        data.getByteArrayExtra("imagebitmap"),0,data.getByteArrayExtra("imagebitmap").length));
-            }
-            boolean[] post_related_tags=data.getBooleanArrayExtra("post_related_tags");
-            title_recycler_list.add(title);
-            description_recycler_list.add(description);
-            for(int i=0;i<post_related_tags.length;i++)
-            {
-                if(post_related_tags[i]==true)
-                    Toast.makeText(getApplicationContext(),String.valueOf(post_related_tags[i]),Toast.LENGTH_LONG).show();
-            }
 
-            String [] title_list = title_recycler_list.toArray(new String[title_recycler_list.size()]);
-            Bitmap [] bitmap_list = bitmap.toArray(new Bitmap[bitmap.size()]);
-            String [] description_list = description_recycler_list.toArray(new String[description_recycler_list.size()]);
-            MyAdapter mAdapter = new MyAdapter(title_list,bitmap_list,description_list);
-            mRecyclerView.setAdapter(mAdapter);
+        if(requestCode==POST_NEWS_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK) {
+
+            position=data.getIntExtra("position",0)-1;
+
+            /*databaseReference = FirebaseDatabase.getInstance().getReference().child("position");
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Map<String, String> data1 = (Map<String, String>) dataSnapshot.getValue();
+                    for (Map.Entry<String, String> e1 : data1.entrySet()) {
+                        if (e1.getKey().equals("index_value")) {
+                            position = Integer.parseInt(e1.getValue())-1;
+                        }
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });*/
+
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("Post"+position);
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Map<String,String> data1 =(Map<String,String>) dataSnapshot.getValue();
+                    for(Map.Entry<String,String> e1:data1.entrySet()){
+                        if (e1.getKey().equals("Post_Description")) {
+                            postDescription = e1.getValue();
+                        } else if (e1.getKey().equals("Post_Title")) {
+                            postTitle = e1.getValue();
+                        }else if(e1.getKey().equals("Imagebitmap")){
+                            postImage = e1.getValue();
+                        }
+
+                    }
+//                    if(data.hasExtra("imagebitmap")) {
+//                        previewThumbnail = (ImageView)findViewById(R.id.imageView);
+//                        bitmap.add(BitmapFactory.decodeByteArray(
+//                                data.getByteArrayExtra("imagebitmap"),0,data.getByteArrayExtra("imagebitmap").length));
+//                    }
+                    //boolean[] post_related_tags=data.getBooleanArrayExtra("post_related_tags");
+                    title_recycler_list.add(postTitle);
+                    description_recycler_list.add(postDescription);
+
+
+                    byte[] decodedString = Base64.decode(postImage, Base64.DEFAULT);
+                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    bitmap.add(decodedByte);
+                    String [] title_list = title_recycler_list.toArray(new String[title_recycler_list.size()]);
+                    Bitmap [] bitmap_list = bitmap.toArray(new Bitmap[bitmap.size()]);
+                    String [] description_list = description_recycler_list.toArray(new String[description_recycler_list.size()]);
+                    MyAdapter mAdapter = new MyAdapter(title_list,bitmap_list,description_list);
+                    mRecyclerView.setAdapter(mAdapter);
+                    Toast.makeText(HomePage.this, "Post Title is: " + postTitle + " Post Description: " + postDescription, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                    Toast.makeText(getApplicationContext(), "Cant retrive data", Toast.LENGTH_LONG).show();
+
+                }
+            });
+
+
+            /*DataSnapshot dataSnapshot = null;
+            Map<String, String> get_data = (Map<String, String>) dataSnapshot.getValue();
+            //String postDescription = null, postTitle = null, postTag = null;
+            for (Map.Entry<String, String> e1 : get_data.entrySet()) {
+                if (e1.getKey().equals("Post_Description")) {
+                        postDescription = e1.getValue();
+                } else if (e1.getKey().equals("Post_Title")) {
+                        postTitle = e1.getValue();
+                } else if (e1.getKey().equals("Post_tag")) {
+                        postTag = e1.getValue();
+                }
+            }*/
+//            if (postDescription == null || postTitle == null) {
+//                Toast.makeText(HomePage.this, "No text to show", Toast.LENGTH_LONG).show();
+//            } else {
+//                Toast.makeText(HomePage.this, "Post Title is: " + postTitle + " Post Tags: " + postTag + " Post Description: " + postDescription, Toast.LENGTH_LONG).show();
+//            }
+
+
+            //String title=data.getStringExtra("title");
+            //String description=data.getStringExtra("description");
+
         }
 
     }
