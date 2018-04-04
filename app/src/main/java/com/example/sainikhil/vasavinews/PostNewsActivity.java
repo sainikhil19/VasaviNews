@@ -1,5 +1,7 @@
 package com.example.sainikhil.vasavinews;
 
+import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ public class PostNewsActivity extends AppCompatActivity {
 
     private void replaceFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+
     }
 }
 
