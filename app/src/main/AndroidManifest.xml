@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="com.example.sainikhil.vasavinews">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -32,7 +31,15 @@
         <activity
             android:name=".TagsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PostNewsActivity"></activity>
+        <activity android:name=".PostNewsActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".HomePage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sainikhil.vasavinews.HomePage" />
+        </activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.sainikhil.vasavinews;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -66,9 +67,13 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        Intent i= new Intent(this,TagsActivity.class);
-        startActivityForResult(i,TAGS_ACTIVITY_REQUEST_CODE);
-
+        SharedPreferences values = getPreferences(MODE_PRIVATE);
+//        SharedPreferences.Editor keyValuesEditor;
+        String pref_tags = values.getString(getString(R.string.key_save_tags));
+        if(pref_tags.compareTo("")==0) {
+            Intent i = new Intent(this, TagsActivity.class);
+            startActivityForResult(i, TAGS_ACTIVITY_REQUEST_CODE);
+        }
         tagsArray = getResources().getStringArray(R.array.tags_array);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         TagsAdapter adapter = new TagsAdapter(getSupportFragmentManager(), tagsArray);
@@ -149,9 +154,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -166,8 +168,10 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
 
 
-        if (id == R.id.nav_share) {
-
+        if (id == R.id.nav_settings) {
+            // launch settings activity
+            startActivity(new Intent(HomePage.this, SettingsActivity.class));
+            return true;
         } else if (id == R.id.nav_send) {
 
         } else if (id == R.id.nav_about) {

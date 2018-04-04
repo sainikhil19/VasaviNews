@@ -112,9 +112,7 @@ public class PostNewsFragment extends Fragment {
         mNextBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(), HomePage.class);
-                Snackbar.make(view, "Finish!", Snackbar.LENGTH_LONG).show();
-                startActivity(intent);
+                getActivity().finish();
             }
         });
 

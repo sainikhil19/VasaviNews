@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_search"
-        android:orderInCategory="100"
-        android:title="@string/search"
-        android:icon="@mipmap/ic_launcher"
-        android:actionViewClass="android.widget.SearchView"
-        app:showAsAction="ifRoom|collapseActionView"/>
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/about"
-        android:orderInCategory="100"
-        android:title="Profile"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/cart"
-        android:title="SignIn"
-        android:orderInCategory="100"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/logout"
-        android:orderInCategory="100"
-        android:title="Logout"
-        app:showAsAction="never" />
 
 </menu>

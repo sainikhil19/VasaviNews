@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "396889994363",
+    "firebase_url": "https://vasavinews-a8197.firebaseio.com",
+    "project_id": "vasavinews-a8197",
+    "storage_bucket": "vasavinews-a8197.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396889994363:android:aea105ec3a494bec",
+        "android_client_info": {
+          "package_name": "com.example.sainikhil.vasavinews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396889994363-h6i04btjlolp30aq24cjv4nlgkf9347h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sainikhil.vasavinews",
+            "certificate_hash": "e2a84f1da8c5dce03ad634bba54ff386786acae0"
+          }
+        },
+        {
+          "client_id": "396889994363-00vo4miamo6bmlrdglfh5vvmsqo4bm53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP5CsJRVcODBHOiPw0d85IVahUt003Cuo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396889994363-00vo4miamo6bmlrdglfh5vvmsqo4bm53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
