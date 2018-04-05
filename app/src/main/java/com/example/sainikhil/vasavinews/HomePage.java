@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -23,6 +25,7 @@ import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.example.sainikhil.vasavinews.menuactions.MenuCreate;
 import com.example.sainikhil.vasavinews.tagsdata.TagsAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -59,6 +62,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         //searchView=(SearchView)findViewById(R.id.sv);
         //Intent i1=getIntent();
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -68,27 +73,32 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 startActivityForResult(intent,POST_NEWS_ACTIVITY_REQUEST_CODE);
             }
         });
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-//        SharedPreferences values = getPreferences(MODE_PRIVATE);
+//        SharedPreferences values = getPreferences(PREFS_NAME, MODE_PRIVATE);
 //        SharedPreferences.Editor keyValuesEditor;
-//        String pref_tags = values.getString(getString(R.string.key_save_tags));
-//        if(pref_tags.compareTo("")==0) {
-//
-//        }
+        SharedPreferences values = PreferenceManager.getDefaultSharedPreferences(this);
+        String pref_tags = values.getString(getString(R.string.key_save_tags),"");
+        if(pref_tags.compareTo("")==0) {
+            Intent i= new Intent(this,TagsActivity.class);
+            startActivityForResult(i,TAGS_ACTIVITY_REQUEST_CODE);
+        }
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        Intent i= new Intent(this,TagsActivity.class);
-        startActivityForResult(i,TAGS_ACTIVITY_REQUEST_CODE);
+
 
         String[] tagsArray = getResources().getStringArray(R.array.tags_array);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+
         TagsAdapter adapter = new TagsAdapter( getSupportFragmentManager(),tagsArray);
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -122,7 +132,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
 */
-
+       MenuCreate menu =  new MenuCreate(navigationView,tagsArray,tabLayout);
+       menu.addMenu();
     }
 
     @Override
@@ -134,23 +145,29 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             selected_tags=data.getBooleanArrayExtra("selected_tags");
 
             int count = 0;
+            String[] tagsArray = getResources().getStringArray(R.array.tags_array);
+            String tags="";
             for (boolean i : selected_tags)
             {
-                if(i==true)
+                if(i)
                     count++;
             }
-            selected = new String[count];
-            String[] tagsArray = getResources().getStringArray(R.array.tags_array);
-            int current=0;
-            for(int i=0;i<tagsArray.length;i++) {
-                if (selected_tags[i]) {
-                    selected[current] = tagsArray[i];
-                    current++;
-                }
+            tags="";
+            for(int i=0;i<selected_tags.length;i++)
+            {
+                if(selected_tags[i])
+                    tags+="1";
+                else
+                    tags+="0";
             }
-
-
+            SharedPreferences values = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor keyValuesEditor = values.edit();
+            keyValuesEditor.putString(getString(R.string.key_save_tags),tags);//persistString(tags);
+            keyValuesEditor.apply();
         }
+
+
+
 
         if(requestCode==POST_NEWS_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK) {
 
@@ -276,19 +293,13 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         //noinspection SimplifiableIfStatement
 
-        if (id == R.id.action_settings) {
-            //Intent intent=new Intent(this, Personal_Settings.class);
-            //startActivity(intent);
 
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -300,18 +311,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             // launch settings activity
             startActivity(new Intent(HomePage.this, SettingsActivity.class));
             return true;
-        }
-        if (id == R.id.nav_share) {
-
-
-        } else if (id == R.id.nav_send) {
-
-        } else if (id == R.id.nav_about) {
-
-        } else if (id == R.id.nav_settings) {
-
-        } else if (id == R.id.nav_logout) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

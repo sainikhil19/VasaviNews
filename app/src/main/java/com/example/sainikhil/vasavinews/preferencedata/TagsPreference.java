@@ -60,7 +60,7 @@ public class TagsPreference extends DialogPreference {
     }
 
     private boolean flag=false;
-    private boolean[] selected_tags = new boolean[40];
+    private boolean[] selected_tags = new boolean[28];
     String tags="";
     String[] tags_array;
     int len = 0;
@@ -90,7 +90,7 @@ public class TagsPreference extends DialogPreference {
         len=tagsArray.length;
         chipCloud.addChip("All News");
         chipCloud.addChips(tagsArray);
-        for(int i=0;i<len;i++)
+        for(int i=0;i<len+1;i++)
         {
             if(selected_tags[i])
                 chipCloud.setChecked(i);
@@ -138,13 +138,14 @@ public class TagsPreference extends DialogPreference {
                     count++;
             }
             tags="";
-            for(int i=0;i<len;i++)
+            for(int i=0;i<tags_array.length+1;i++)
             {
                 if(selected_tags[i])
                     tags+="1";
                 else
                     tags+="0";
             }
+
 
             persistString(tags);
 
@@ -155,7 +156,8 @@ public class TagsPreference extends DialogPreference {
         if (restorePersistedValue) {
             // Restore existing state
             tags = this.getPersistedString("");
-            for(int i=0;i<tags.length();i++)
+            len = 27;
+            for(int i=0;i<len+1;i++)
             {
                 if(tags.charAt(i)=='1')
                     selected_tags[i]=true;
@@ -165,7 +167,7 @@ public class TagsPreference extends DialogPreference {
         } else {
             // Set default state from the XML attribute
             tags = "";
-            for(int i=0;i<len;i++)
+            for(int i=0;i<len+1;i++)
             {
                 if(selected_tags[i])
                     tags+="1";
