@@ -1,6 +1,5 @@
 package com.example.sainikhil.vasavinews.postdata;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -9,29 +8,40 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.sainikhil.vasavinews.HomePage;
 import com.example.sainikhil.vasavinews.R;
 import com.google.android.flexbox.FlexboxLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+
 import fisk.chipcloud.ChipCloud;
 import fisk.chipcloud.ChipCloudConfig;
 import fisk.chipcloud.ChipListener;
 import moe.feng.common.stepperview.VerticalStepperItemView;
+
+import static android.app.Activity.RESULT_OK;
 
 public class PostNewsFragment extends Fragment {
 
     private static final String TAG = "PostNewsFragment";
     private static final int GALLERY_REQUEST = 1;
     private static final int CAMERA_REQUEST = 2;
+    static int position=0;
     private VerticalStepperItemView mSteppers[] = new VerticalStepperItemView[4];
     public boolean[] selected_tags= new boolean[40];//contains the selected tags in order of the array specified
     boolean flag=false;
@@ -39,7 +49,10 @@ public class PostNewsFragment extends Fragment {
     ImageView imageview;
     TextView news_title_preview,news_details_preview;
     EditText headline,details;
-    Button imagefromgallery,imagefromcamera;
+    Bitmap bitmap;
+    Button imagefromstock;
+    DatabaseReference databaseReference;
+    ImageButton imagefromgallery,imagefromcamera;
     public PostNewsFragment() {
         // Required empty public constructor
     }
@@ -50,9 +63,9 @@ public class PostNewsFragment extends Fragment {
         news_title_preview=(TextView)view.findViewById(R.id.news_title_preview);
         news_details_preview=(TextView)view.findViewById(R.id.news_details_preview);
         imageview = (ImageView)view.findViewById(R.id.previewimageView);
-        imagefromgallery=(Button)view.findViewById(R.id.button_from_gallery);
-        imagefromcamera=(Button)view.findViewById(R.id.button_from_camera);
-
+        imagefromgallery=(ImageButton)view.findViewById(R.id.button_from_gallery);
+        imagefromcamera=(ImageButton)view.findViewById(R.id.button_from_camera);
+        imagefromstock=(Button)view.findViewById(R.id.button_from_stock);
         mSteppers[0] = view.findViewById(R.id.info_part);
         mSteppers[1] = view.findViewById(R.id.image_part);
         mSteppers[2] = view.findViewById(R.id.tags_part);
@@ -112,7 +125,52 @@ public class PostNewsFragment extends Fragment {
         mNextBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Snackbar.make(view, "Finish!", Snackbar.LENGTH_LONG).show();
+                imageview.buildDrawingCache();
+                bitmap= imageview.getDrawingCache();
+                /*databaseReference = FirebaseDatabase.getInstance().getReference().child("position");
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            Map<String, String> data1 = (Map<String, String>) dataSnapshot.getValue();
+                            for (Map.Entry<String, String> e1 : data1.entrySet()) {
+                                if (e1.getKey().equals("index_value")) {
+                                    position = Integer.valueOf(e1.getValue());
+                                }
+
+                            }
+                        }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });*/
+                ByteArrayOutputStream bytearrayoutputstream=new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG,100,bytearrayoutputstream);
+                byte[] imageBytes =bytearrayoutputstream.toByteArray();
+                String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+                //Map<String, String> dataMap_position = new HashMap<String, String>();
+                //dataMap_position.put("index_value",String.valueOf(position+1));
+                //databaseReference.setValue(dataMap_position);
+                //Toast.makeText(getContext(),String.valueOf(dataMap_position),Toast.LENGTH_SHORT).show();
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("Post"+position);
+                position++;
+                HashMap<String, String> dataMap = new HashMap<String, String>();
+                dataMap.put("Post_Description", description);
+                dataMap.put("Post_Title", title);
+                dataMap.put("Imagebitmap", imageString);
+                databaseReference.setValue(dataMap);
+                Intent intent=new Intent();
+                intent.putExtra("title",title);
+                intent.putExtra("description",description);
+                intent.putExtra("imagebitmap",bytearrayoutputstream.toByteArray());
+                intent.putExtra("post_related_tags",selected_tags);
+                intent.putExtra("position",position);
+                getActivity().setResult(RESULT_OK, intent);
                 getActivity().finish();
+
             }
         });
 
@@ -141,6 +199,12 @@ public class PostNewsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 pickImageUsingCamera(view);
+            }
+        });
+        imagefromstock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pickImageFromStock(view);
             }
         });
     }
@@ -198,11 +262,18 @@ public class PostNewsFragment extends Fragment {
         startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
 
     }
+
     private void pickImageUsingCamera(View view)
     {
         Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(takePicture, CAMERA_REQUEST);
 
+    }
+
+    private void pickImageFromStock(View view)
+    {
+        imageview.setImageDrawable(getResources().getDrawable(R.drawable.logo_vce));
+        Toast.makeText(view.getContext(), "image Selected", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -222,7 +293,7 @@ public class PostNewsFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == Activity.RESULT_OK) {
+        if(resultCode == RESULT_OK) {
             switch (requestCode) {
                 case GALLERY_REQUEST:
                     Uri selectedImage = data.getData();
@@ -234,11 +305,15 @@ public class PostNewsFragment extends Fragment {
                     }
                     break;
                 case CAMERA_REQUEST:
-                    Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-                    imageview.setImageBitmap(bitmap);
-
+                    try {
+                        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                        imageview.setImageBitmap(bitmap);
+                    } catch (Exception e1) {
+                        Log.i("TAG", "Some exception " + e1);
+                    }
                     break;
             }
+            Toast.makeText(getContext(),  "image Selected", Toast.LENGTH_SHORT).show();
         }
 
     }

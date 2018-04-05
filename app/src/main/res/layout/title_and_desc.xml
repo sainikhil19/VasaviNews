@@ -36,19 +36,19 @@
                 android:inputType="textCapWords" />
 
             <!-- Breed field -->
-            <ScrollView
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent">
-                <EditText
-                    android:inputType="textMultiLine"
-                    android:lines="3"
-                    android:minLines="3"
-                    android:gravity="top|left"
-                    android:scrollbars="vertical"
-                    android:id="@+id/news_details"
-                    style="@style/EditorFieldStyle"
-                    android:hint="Details" />
-            </ScrollView>
+
+            <EditText
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:minLines="3"
+                android:gravity="top|left"
+                android:scrollbars="vertical"
+                android:id="@+id/news_details"
+                style="@style/EditorFieldStyle"
+                android:hint="Details" />
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"

@@ -3,6 +3,7 @@
     package="com.example.sainikhil.vasavinews">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -40,6 +41,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.sainikhil.vasavinews.HomePage" />
         </activity>
+
     </application>
 
 </manifest>

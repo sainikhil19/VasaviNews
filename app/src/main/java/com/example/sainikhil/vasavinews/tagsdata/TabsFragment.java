@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.sainikhil.vasavinews.R;
 
-/**
- * Created by Omar on 07-Mar-18.
- */
+
 
 public class TabsFragment extends Fragment {
 

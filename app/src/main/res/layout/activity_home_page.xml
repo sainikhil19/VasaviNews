@@ -17,21 +17,12 @@
     tools:context="com.example.sainikhil.vasavinews.HomePage">
 
 
-    <!-- commented unless needed
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="5dp"
-        android:src="@android:drawable/ic_input_add"/>
-        -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/empty_view"
         android:orientation="horizontal">
+
 
     </LinearLayout>
 </RelativeLayout>
@@ -39,6 +30,9 @@
         layout="@layout/app_bar_home_page"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
