@@ -67,13 +67,14 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        SharedPreferences values = getPreferences(MODE_PRIVATE);
+//        SharedPreferences values = getPreferences(MODE_PRIVATE);
 //        SharedPreferences.Editor keyValuesEditor;
-        String pref_tags = values.getString(getString(R.string.key_save_tags));
-        if(pref_tags.compareTo("")==0) {
-            Intent i = new Intent(this, TagsActivity.class);
-            startActivityForResult(i, TAGS_ACTIVITY_REQUEST_CODE);
-        }
+//        String pref_tags = values.getString(getString(R.string.key_save_tags));
+//        if(pref_tags.compareTo("")==0) {
+//
+//        }
+        Intent i = new Intent(this, TagsActivity.class);
+        startActivityForResult(i, TAGS_ACTIVITY_REQUEST_CODE);
         tagsArray = getResources().getStringArray(R.array.tags_array);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         TagsAdapter adapter = new TagsAdapter(getSupportFragmentManager(), tagsArray);
