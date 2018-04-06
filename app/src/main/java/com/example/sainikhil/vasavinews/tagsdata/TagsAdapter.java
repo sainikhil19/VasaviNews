@@ -1,12 +1,13 @@
 package com.example.sainikhil.vasavinews.tagsdata;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class TagsAdapter extends FragmentPagerAdapter{
-    TabsFragment current;
+//    TabsFragment current;
     private int count;
     private final String[] tagsArray;
     public TagsAdapter(FragmentManager fm, String[] tabs) {
@@ -17,10 +18,14 @@ public class TagsAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-/*
-        TabsFragment tab = new TabsFragment();
-        current = tab;*/
-        return new TabsFragment();
+//        if(position==0)
+//            return new TabsFragment();
+//        Bundle bundle = new Bundle();
+//        bundle.putString("Title",tagsArray[position-1]);
+//        TabsFragment tab = new TabsFragment();
+//        tab.setArguments(bundle);
+//        current = tab;
+        return new NewsItemFragment();
     }
 
     @Override
