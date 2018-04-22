@@ -33,7 +33,15 @@
             android:name=".TagsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PostNewsActivity" />
-        <!--activity android:name=".settings"></-activity>-->
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".HomePage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sainikhil.vasavinews.HomePage" />
+        </activity>
+
     </application>
 
 </manifest>

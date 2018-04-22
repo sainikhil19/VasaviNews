@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Base64;
@@ -22,12 +23,21 @@ import android.widget.Toast;
 
 import com.example.sainikhil.vasavinews.R;
 import com.google.android.flexbox.FlexboxLayout;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 import fisk.chipcloud.ChipCloud;
 import fisk.chipcloud.ChipCloudConfig;
@@ -37,6 +47,13 @@ import moe.feng.common.stepperview.VerticalStepperItemView;
 import static android.app.Activity.RESULT_OK;
 
 public class PostNewsFragment extends Fragment {
+
+    FirebaseFirestore db;
+    private static final String TITLE_KEY = "Title";
+    private static final String DESC_KEY = "Description";
+    private static final String IMAGE_KEY = "Image";
+    private static final String TAGS_KEY = "Tags";
+    private static final String TIME_KEY = "Time";
 
     private static final String TAG = "PostNewsFragment";
     private static final int GALLERY_REQUEST = 1;
@@ -125,17 +142,76 @@ public class PostNewsFragment extends Fragment {
         mNextBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Snackbar.make(view, "Finish!", Snackbar.LENGTH_LONG).show();
+
                 imageview.buildDrawingCache();
                 bitmap= imageview.getDrawingCache();
-                /*databaseReference = FirebaseDatabase.getInstance().getReference().child("position");
+                ByteArrayOutputStream bytearrayoutputstream=new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG,100,bytearrayoutputstream);
+
+                byte[] imageBytes =bytearrayoutputstream.toByteArray();
+                String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+
+
+                db = FirebaseFirestore.getInstance();
+                Map < String, Object > newPost = new HashMap < > ();
+                newPost.put(TITLE_KEY, title);
+                newPost.put(DESC_KEY, description);
+                newPost.put(IMAGE_KEY, imageString);
+                newPost.put(TAGS_KEY, "test");
+                newPost.put(TIME_KEY, "test");
+
+                db.collection("Posts").add(newPost)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                    }
+                })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error adding document", e);
+                            }
+                        });
+
+
+//                Map<String, Object> data = new HashMap<>();
+//                data.put("name", "Tokyo");
+//                data.put("country", "Japan");
+//                ApiFuture<DocumentReference> addedDocRef = db.collection("cities").add(data);
+
+/*
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("position");
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
+
+
                             Map<String, String> data1 = (Map<String, String>) dataSnapshot.getValue();
                             for (Map.Entry<String, String> e1 : data1.entrySet()) {
                                 if (e1.getKey().equals("index_value")) {
                                     position = Integer.valueOf(e1.getValue());
+                                    Map<String, String> dataMap_position = new HashMap<String, String>();
+                                    dataMap_position.put("index_value",String.valueOf(position+1));
+                                    databaseReference.setValue(dataMap_position);
+
+                                    Toast.makeText(getContext(),String.valueOf(dataMap_position),Toast.LENGTH_SHORT).show();
+                                    databaseReference = FirebaseDatabase.getInstance().getReference().child("Post"+position);
+                                    HashMap<String, String> dataMap = new HashMap<String, String>();
+                                    dataMap.put("Post_Description", description);
+                                    dataMap.put("Post_Title", title);
+                                    dataMap.put("Imagebitmap", imageString);
+                                    databaseReference.setValue(dataMap);
+                                    Intent intent=new Intent();
+//                                    intent.putExtra("title",title);
+//                                    intent.putExtra("description",description);
+//                                    intent.putExtra("imagebitmap",bytearrayoutputstream.toByteArray());
+//                                    intent.putExtra("post_related_tags",selected_tags);
+//                                    intent.putExtra("position",position);
+                                    getActivity().setResult(RESULT_OK, intent);
+                                    getActivity().finish();
                                 }
 
                             }
@@ -145,31 +221,9 @@ public class PostNewsFragment extends Fragment {
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
-                });*/
-                ByteArrayOutputStream bytearrayoutputstream=new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG,100,bytearrayoutputstream);
-                byte[] imageBytes =bytearrayoutputstream.toByteArray();
-                String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
-                //Map<String, String> dataMap_position = new HashMap<String, String>();
-                //dataMap_position.put("index_value",String.valueOf(position+1));
-                //databaseReference.setValue(dataMap_position);
-                //Toast.makeText(getContext(),String.valueOf(dataMap_position),Toast.LENGTH_SHORT).show();
-                databaseReference = FirebaseDatabase.getInstance().getReference().child("Post"+position);
-                position++;
-                HashMap<String, String> dataMap = new HashMap<String, String>();
-                dataMap.put("Post_Description", description);
-                dataMap.put("Post_Title", title);
-                dataMap.put("Imagebitmap", imageString);
-                databaseReference.setValue(dataMap);
-                Intent intent=new Intent();
-                intent.putExtra("title",title);
-                intent.putExtra("description",description);
-                intent.putExtra("imagebitmap",bytearrayoutputstream.toByteArray());
-                intent.putExtra("post_related_tags",selected_tags);
-                intent.putExtra("position",position);
-                getActivity().setResult(RESULT_OK, intent);
+                });
+*/
                 getActivity().finish();
-
             }
         });
 

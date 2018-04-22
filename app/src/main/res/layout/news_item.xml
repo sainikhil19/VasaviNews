@@ -5,24 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="96dp"
     android:padding="16dp"
-    android:id="@+id/news_container">
+    android:id="@+id/news_container1">
 
     <ImageView
-        android:id="@+id/news_image"
+        android:id="@+id/news_image1"
         android:layout_width="64dp"
         android:layout_height="64dp"
         />
 
     <TextView
         android:id="@+id/news_item_text"
-        android:padding="4dp"
+        android:paddingStart="8dp"
         android:textColor="#000000"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/news_image"
+        android:layout_toEndOf="@+id/news_image1"
         android:textSize="16sp"
         android:text="Hello"
-        android:layout_toRightOf="@+id/news_image" />
+        android:layout_toRightOf="@+id/news_image1" />
 </RelativeLayout>
